@@ -1,7 +1,7 @@
 name: Generate NPM module for CASDK WebAPI
 
 on:
-  workflow_call:
+  workflow_dispatch:
 
 jobs:
   generate:
