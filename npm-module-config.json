@@ -1,7 +1,5 @@
 {
-  "apiPackage": "casdk",
-  "projectDescription": "Carbon Aware SDK WebAPI client library",
-  "npmName": "casdk",
+  "npmName": "@YaSuenag/casdk",
   "npmVersion": "0.1.0",
   "licenseName": "MIT",
   "gitUserId": "YaSuenag",
