@@ -38,7 +38,7 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ github.token }}
       - name: Setup TypeDoc
-        run: npm install -g @openapitools/openapi-generator-cli
+        run: npm install -g typedoc
       - name: Generate documents
         working-directory: work
         run: npx typedoc --options ../casdk-api-typedoc.json --entryPoints index.ts
