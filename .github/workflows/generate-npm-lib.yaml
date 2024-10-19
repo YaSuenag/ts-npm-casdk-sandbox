@@ -37,3 +37,26 @@ jobs:
           npm publish
         env:
           NODE_AUTH_TOKEN: ${{ github.token }}
+      - name: Setup TypeDoc
+        run: npm install -g @openapitools/openapi-generator-cli
+      - name: Generate documents
+        working-directory: work
+        run: npx typedoc --options ../casdk-api-typedoc.json --entryPoints index.ts
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+
+  deploy_page:
+    needs: generate
+    permissions:
+      pages: write
+      id-token: write
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
